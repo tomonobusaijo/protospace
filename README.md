@@ -7,7 +7,7 @@ has_many :prototypes, likes, comments
 ```  
   
 **table**  
-* username, string  
+* **name**, string  
 * member, string  
 * profile, text  
 * works, text  
@@ -41,6 +41,7 @@ belongs_to :prototype
 * prototype_id, integer  
 * created_at, datetime  
 * updated_at, datetime
+* **role, integer ( main: 0, sub: 1 )**
 
 ##Like
 **association**  
