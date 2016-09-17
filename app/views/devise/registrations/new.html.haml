@@ -6,8 +6,6 @@
           %h2 Register
           .user-name_image.row
             .user-name.col-md-10
-              = f.label :name, "Username"
-              %br
               = f.text_field :name, placeholder: "Username"
             .user-image.col-md-2
               %button.btn.btn-primary Add image
@@ -21,20 +19,14 @@
           %h4 Member of
           .user-user-member.row
             .user-name.col-md-12
-              = f.label :member, "Member"
-              %br
               = f.text_field :member, placeholder: "Member"
           %h4 Profile
           .user-user-profile.row
             .textarea.user-name.col-md-12
-              = f.label :profile, "Profile"
-              %br
               = f.text_area :profile, placeholder: "Profile", cols: 30, rows: 4
           %h4 Works
           .user-name_image.row
             .textarea.user-name.col-md-12
-              = f.label :works, "Works"
-              %br
               = f.text_area :works, placeholder: "Works", cols: 30, rows: 4
       .row.text-center.user-btn
         = f.submit "Save", class: "btn btn-lg btn-primary btn-block"
