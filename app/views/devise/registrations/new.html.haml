@@ -10,11 +10,11 @@
             .user-image.col-md-2
               %button.btn.btn-primary Add image
               %input{type: "file"}/
-          %input.user-email{type: "email", placeholder: "E-Mail"}/
+          = f.email_field :email, placeholder: "E-mail", class: "user-email"
           %br
-          %input.user-password{type: "password", placeholder: "Password"}/
+          = f.password_field :password, placeholder: "Password", class: "user-password"
           %br
-          %input.user-password{type: "password", placeholder: "Password_Comfirmation"}/
+          = f.password_field :password_comfirmation, placeholder: "Password-Comfirmation", class: "user-password"
         .col-md-12
           %h4 Member of
           .user-user-member.row

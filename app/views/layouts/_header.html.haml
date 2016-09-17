@@ -9,10 +9,6 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
-          %li
-            .btn.btn-primary.navbar-btn
-              %a{href: "/proto/new"}
-                New Proto
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
               UserName
@@ -22,6 +18,10 @@
                 %a{href: "#"} Profile Edit
               %li
                 %a{href: "#"} Logout
+          %li
+            .btn.btn-primary.navbar-btn
+              %a{href: "/proto/new"}
+                New Proto
       - else
         %ul.nav.navbar-nav.navbar-right
           %li
