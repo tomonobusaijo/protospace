@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
-    redirect_to :root
+    flash[:success] = "Profile edit is completed."
+    redirect_to :root and return
   end
 
   private
