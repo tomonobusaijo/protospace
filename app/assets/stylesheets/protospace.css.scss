@@ -625,3 +625,17 @@ body {
   height: 10px;
   text-align: center;
 }
+
+/*-- devise --------------------------------------------- */
+#error_explanation {
+  margin: 50px auto;
+  text-align: center;
+  ul {
+    text-align: left;
+    width: 600px;
+    margin: 20px auto;
+    li {
+      margin: 10px auto;
+    }
+  }
+}
