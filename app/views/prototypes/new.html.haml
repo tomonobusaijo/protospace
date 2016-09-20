@@ -4,29 +4,32 @@
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
-          / %input.proto-new-title{type: "text", placeholder: "Title"}/
       .row
         .col-md-12
-          .cover-image-upload
-            %input{type: "file"}/
-        .col-md-12
-          %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{type: "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{type: "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+          = f.fields_for :capturedimages do |images|
+            .cover-image-upload
+              = images.file_field :picture
+              = images.hidden_field :role, value: "main", required: true
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              %li.list-group-item.col-md-4
+                = f.fields_for :capturedimages do |images|
+                  .image-upload
+                    = images.file_field :picture
+                    = images.hidden_field :role, value: "sub"
+              %li.list-group-item.col-md-4
+                = f.fields_for :capturedimages do |images|
+                  .image-upload
+                    = images.file_field :picture
+                    = images.hidden_field :role, value: "sub"
+              %li.list-group-item.col-md-4
+                .image-upload-plus
+                  %span +
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder: "Catch Copy"
-          / %input{type: "text", placeholder: "Catch Copy"}/
         .col-md-12
           = f.text_area :concept, placeholder: "Concept", cols: "30", rows: "4"
-          / %textarea{name: "", cols: "30", rows: "4", placeholder: "Concept"}
         .col-md-12
           %h4 Tag List
           .row
