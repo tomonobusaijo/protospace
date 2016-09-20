@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916023801) do
+ActiveRecord::Schema.define(version: 20160920024948) do
+
+  create_table "capturedimages", force: :cascade do |t|
+    t.integer  "prototype_id", limit: 4
+    t.integer  "role",         limit: 4,   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "picture",      limit: 255
+  end
+
+  add_index "capturedimages", ["role"], name: "index_capturedimages_on_role", using: :btree
+
+  create_table "prototypes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "title",      limit: 255
+    t.string   "catchcopy",  limit: 255
+    t.text     "concept",    limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
