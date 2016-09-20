@@ -4,19 +4,28 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
+    @prototype.capturedimages.build
   end
 
   def show
   end
 
   def create
-    @prototype = Prototype.create(create_params)
-    flash[:success] = "Prototype posting is completed."
+    Prototype.create(create_params)
+    flash[:success] = "Prototype was successfully created."
     redirect_to :root and return
   end
 
   private
   def create_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept).merge(user_id: current_user.id)
+    params.require(:prototype).permit(
+      :title,
+      :catchcopy,
+      :concept,
+      capturedimages_attributes: [
+        :prototype_id,
+        :role,
+        :picture
+      ]).merge(user_id: current_user.id)
   end
 end
