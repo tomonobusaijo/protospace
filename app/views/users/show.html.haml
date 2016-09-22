@@ -32,7 +32,9 @@
             %h3
               = prototype.title
             .proto-meta
-              .proto-date
+              .proto-user
+                = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
+              .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
               %li
