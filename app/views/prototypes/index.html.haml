@@ -8,10 +8,8 @@
       %ul.nav.nav-pills.col-lg-11
         %li.active{role: "presentation"}
           = link_to 'Popular PROTO', "#"
-          / %a{href: "#"} Popular PROTO
         %li{role: "presentation"}
           = link_to 'Newest PROTO', "#"
-          / %a{href: "#"} Newest PROTO
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
 
 .container.proto-list
@@ -25,8 +23,7 @@
               = prototype.title
             .proto-meta
               .proto-user
-                %a{href: user_path(prototype.user_id)} by #{prototype.user.name}
-                / = link_to 'by #{prototype.user.name}', user_path(prototype.user_id)
+                = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
