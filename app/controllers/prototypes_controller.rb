@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
   def index
+    @prototype = Prototype.includes(:user)
   end
 
   def new
@@ -8,6 +9,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @prototype = Prototype.find(params[:id])
   end
 
   def create
