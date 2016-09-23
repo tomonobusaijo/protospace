@@ -20,7 +20,10 @@
         %span.num 20
   .row
     .col-md-9
-      = image_tag(@prototype.capturedimages.main.first.picture, class: 'img-responsive')
+      - if @prototype.capturedimages.exists?
+        = image_tag(@prototype.capturedimages.main.first.picture, class: 'img-responsive')
+      - else
+        = image_tag("noimage2.png")
     .col-md-3
       %ul.proto-sub-list.list-group
         - @prototype.capturedimages.sub.each do |sub_image|
