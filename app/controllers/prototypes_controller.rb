@@ -31,7 +31,7 @@ class PrototypesController < ApplicationController
 
   def destroy
     prototype = Prototype.find(params[:id])
-    prototype.destroy if prototype.user_id == current_user.id
+    prototype.destroy
     flash[:success] = "Prototype was successfully deleted."
     redirect_to :root and return
   end
