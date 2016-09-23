@@ -311,6 +311,15 @@ body {
     .proto-posted {
       float: right;
     }
+
+    .proto-edit {
+      width: 300px;
+
+      a {
+        float: left;
+        margin: 0 10px;
+      }
+    }
   }
 
   .btn {
