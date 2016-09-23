@@ -17,7 +17,10 @@
     - @prototype.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
+          - if prototype.capturedimages.exists?
+            = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
+          - else
+            = link_to image_tag("noimage2.png"), prototype_path(prototype.id)
           .caption
             %h3
               = prototype.title
