@@ -18,6 +18,25 @@ class PrototypesController < ApplicationController
     redirect_to :root and return
   end
 
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    @prototype.update(update_params)
+    flash[:success] = "Prototype was successfully updated."
+    redirect_to :root and return
+  end
+
+  def destroy
+    prototype = Prototype.find(params[:id])
+    prototype.destroy if prototype.user_id == current_user.id
+    flash[:success] = "Prototype was successfully deleted."
+    redirect_to :root and return
+  end
+
+
   private
   def create_params
     params.require(:prototype).permit(
@@ -25,6 +44,19 @@ class PrototypesController < ApplicationController
       :catchcopy,
       :concept,
       capturedimages_attributes: [
+        :prototype_id,
+        :role,
+        :picture
+      ]).merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params.require(:prototype).permit(
+      :title,
+      :catchcopy,
+      :concept,
+      capturedimages_attributes: [
+        :id,
         :prototype_id,
         :role,
         :picture
