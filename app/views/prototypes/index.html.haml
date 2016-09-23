@@ -17,7 +17,7 @@
     - @prototype.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          - if prototype.capturedimages.exists?
+          - if prototype.capturedimages.main.first
             = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
           - else
             = link_to image_tag("noimage2.png"), prototype_path(prototype.id)
