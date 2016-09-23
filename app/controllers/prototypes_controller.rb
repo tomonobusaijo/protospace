@@ -59,7 +59,8 @@ class PrototypesController < ApplicationController
         :id,
         :prototype_id,
         :role,
-        :picture
+        :picture,
+        :_destroy
       ]).merge(user_id: current_user.id)
   end
 end
