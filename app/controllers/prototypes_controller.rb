@@ -13,9 +13,14 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(create_params)
-    flash[:success] = "Prototype was successfully created."
-    redirect_to :root and return
+    @prototype = Prototype.new(create_params)
+    if @prototype.save
+      flash[:success] = "Prototype was successfully created."
+      redirect_to :root and return
+    else
+      flash[:danger] = "Prototype posting was failured."
+      redirect_to new_prototype_path and return
+    end
   end
 
   def edit
@@ -24,9 +29,13 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    @prototype.update(update_params)
-    flash[:success] = "Prototype was successfully updated."
-    redirect_to :root and return
+    if @prototype.update(update_params)
+      flash[:success] = "Prototype was successfully updated."
+      redirect_to :root and return
+    else
+      flash[:danger] = "Prototype editing was failured."
+      redirect_to edit_prototype_path and return
+    end
   end
 
   def destroy
