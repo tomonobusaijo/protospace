@@ -8,8 +8,8 @@
         .col-md-12
           = f.fields_for :capturedimages do |images|
             .cover-image-upload
-              = images.file_field :picture
-              = images.hidden_field :role, value: "main", required: true
+              = images.file_field :picture, required: true
+              = images.hidden_field :role, value: "main"
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
