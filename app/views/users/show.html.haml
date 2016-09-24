@@ -27,27 +27,24 @@
     - @user.prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          - if prototype.capturedimages.main.first
-            = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
-          - else
-            = link_to image_tag("noimage2.png"), prototype_path(prototype.id)
-          .caption
-            %h3
-              = prototype.title
-            .proto-meta
-              .proto-user
-                = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
-              .proto-posted
-                Apr 26
-              .proto-edit
-                = link_to "編集", edit_prototype_path(prototype.id)
-              .proto-delete
-                = link_to "削除", "/prototypes/#{prototype.id}", controller: :prototypes, method: :delete
-            %ul.proto-tag-list.list-inline
-              %li
-                = link_to 'iPad', "#", class: "btn btn-default"
-              %li
-                = link_to 'wireframe', "#", class: "btn btn-default"
+          = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
+        .caption
+          %h3
+            = prototype.title
+          .proto-meta
+            .proto-user
+              = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
+            .proto-posted
+              Apr 26
+            .proto-edit
+              = link_to "編集", edit_prototype_path(prototype.id)
+            .proto-delete
+              = link_to "削除", "/prototypes/#{prototype.id}", controller: :prototypes, method: :delete
+          %ul.proto-tag-list.list-inline
+            %li
+              = link_to 'iPad', "#", class: "btn btn-default"
+            %li
+              = link_to 'wireframe', "#", class: "btn btn-default"
 
 .text-center
   %ul.pagination
