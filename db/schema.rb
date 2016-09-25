@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920024948) do
+ActiveRecord::Schema.define(version: 20160925114911) do
 
   create_table "capturedimages", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20160920024948) do
   end
 
   add_index "capturedimages", ["role"], name: "index_capturedimages_on_role", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "prototype_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "prototypes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
