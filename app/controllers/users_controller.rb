@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
-    flash[:success] = "Profile edit is completed."
+    flash[:success] = "Profile was successfully updated."
     redirect_to :root and return
   end
 
