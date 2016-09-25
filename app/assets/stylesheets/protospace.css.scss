@@ -313,12 +313,16 @@ body {
     }
 
     .proto-edit {
-      width: 300px;
-
+      float: left;
+      width: 45px;
       a {
-        float: left;
         margin: 0 10px;
       }
+    }
+
+    .proto-delete {
+      float: left;
+      width: 45px;
     }
   }
 
