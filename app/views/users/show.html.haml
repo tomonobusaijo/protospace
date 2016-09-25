@@ -28,23 +28,24 @@
       .col-sm-4.col-md-3.proto-content
         .thumbnail
           = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
-        .caption
-          %h3
-            = prototype.title
-          .proto-meta
-            .proto-user
-              = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
-            .proto-posted
-              Apr 26
-            .proto-edit
-              = link_to "編集", edit_prototype_path(prototype.id)
-            .proto-delete
-              = link_to "削除", "/prototypes/#{prototype.id}", controller: :prototypes, method: :delete
-          %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', "#", class: "btn btn-default"
-            %li
-              = link_to 'wireframe', "#", class: "btn btn-default"
+          .caption
+            %h3
+              = prototype.title
+            .proto-meta
+              .proto-user
+                = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
+              .proto-posted
+                Apr 26
+              - if current_user.id == prototype.user_id
+                .proto-edit
+                  = link_to "編集", edit_prototype_path(prototype.id)
+                .proto-delete
+                  = link_to "削除", "/prototypes/#{prototype.id}", controller: :prototypes, method: :delete
+            %ul.proto-tag-list.list-inline
+              %li
+                = link_to 'iPad', "#", class: "btn btn-default"
+              %li
+                = link_to 'wireframe', "#", class: "btn btn-default"
 
 .text-center
   %ul.pagination
