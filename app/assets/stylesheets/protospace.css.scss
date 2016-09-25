@@ -311,6 +311,19 @@ body {
     .proto-posted {
       float: right;
     }
+
+    .proto-edit {
+      float: left;
+      width: 45px;
+      a {
+        margin: 0 10px;
+      }
+    }
+
+    .proto-delete {
+      float: left;
+      width: 45px;
+    }
   }
 
   .btn {

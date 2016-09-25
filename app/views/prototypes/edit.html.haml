@@ -6,22 +6,24 @@
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
       .row
         .col-md-12
-          = f.fields_for :capturedimages do |images|
+          = f.fields_for(:capturedimages, @prototype.capturedimages.main.first) do |images|
             .cover-image-upload
               = images.file_field :picture, required: true
               = images.hidden_field :role, value: "main"
           .col-md-12
             %ul.proto-sub-list.list-group
-              %li.list-group-item.col-md-4
-                = f.fields_for :capturedimages do |images|
-                  .image-upload
-                    = images.file_field :picture
-                    = images.hidden_field :role, value: "sub"
-              %li.list-group-item.col-md-4
-                = f.fields_for :capturedimages do |images|
-                  .image-upload
-                    = images.file_field :picture
-                    = images.hidden_field :role, value: "sub"
+              - if @prototype.capturedimages.sub.first
+                %li.list-group-item.col-md-4
+                  = f.fields_for(:capturedimages, @prototype.capturedimages.sub.first) do |images|
+                    .image-upload
+                      = images.file_field :picture
+                      = images.hidden_field :role, value: "sub"
+              - if @prototype.capturedimages.sub.second
+                %li.list-group-item.col-md-4
+                  = f.fields_for(:capturedimages, @prototype.capturedimages.sub.second) do |images|
+                    .image-upload
+                      = images.file_field :picture
+                      = images.hidden_field :role, value: "sub"
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +

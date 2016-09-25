@@ -3,4 +3,5 @@ class Capturedimage < ActiveRecord::Base
   enum role: { main: 0, sub: 1 }
   # carrierwaveとモデルの関連付け
   mount_uploader :picture, PictureUploader
+  validates :role, :picture, presence: true
 end
