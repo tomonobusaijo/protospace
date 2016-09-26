@@ -25,7 +25,7 @@
 
 .container.proto-list
   .row
-    - @user.prototypes.each do |prototype|
+    - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
           = link_to image_tag(prototype.capturedimages.main.first.picture), prototype_path(prototype.id)
@@ -50,4 +50,4 @@
 
 .text-center
   %ul.pagination
-    = paginate(@prototype)
+    = paginate(@prototypes)
