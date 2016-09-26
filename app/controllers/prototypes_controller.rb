@@ -1,6 +1,9 @@
 class PrototypesController < ApplicationController
+
+  before_action :set_prototype, only:[:show, :edit, :update, :destroy]
+
   def index
-    @prototype = Prototype.includes(:user)
+    @prototype = Prototype.includes(:user).paginate(params, 8)
   end
 
   def new
@@ -9,7 +12,6 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
   end
 
   def create
@@ -24,11 +26,9 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @prototype = Prototype.find(params[:id])
   end
 
   def update
-    @prototype = Prototype.find(params[:id])
     if @prototype.update(update_params)
       flash[:success] = "Prototype was successfully updated."
       redirect_to :root and return
@@ -39,7 +39,6 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    prototype = Prototype.find(params[:id])
     prototype.destroy
     flash[:success] = "Prototype was successfully deleted."
     redirect_to :root and return
@@ -47,6 +46,10 @@ class PrototypesController < ApplicationController
 
 
   private
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
+  end
+
   def create_params
     params.require(:prototype).permit(
       :title,
