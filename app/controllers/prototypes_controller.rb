@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only:[:show, :edit, :update, :destroy]
 
   def index
-    @prototype = Prototype.includes(:user).paginate(params, 8)
+    @prototype = Prototype.includes(:user)
   end
 
   def new
@@ -12,6 +12,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @likes = @prototype.likes.where(prototype_id: params[:id])
   end
 
   def create
