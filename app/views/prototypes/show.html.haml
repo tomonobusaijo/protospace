@@ -13,11 +13,9 @@
             %span.degree
               = @prototype.user.works
 
-    .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+    #like-button
+      = render "prototypes/like"
+
   .row
     .col-md-9
       = image_tag(@prototype.capturedimages.main.first.picture, class: 'img-responsive')
