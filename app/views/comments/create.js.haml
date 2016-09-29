@@ -1,0 +1,4 @@
+:plain
+  $('#num').html('( #{@prototype.comments.count} )');
+  $('#comments').html('#{j(render partial: "prototypes/comment", collection: @prototype.comments)}');
+  $('#comment_field').val('');
