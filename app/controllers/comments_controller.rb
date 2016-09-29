@@ -1,9 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.create(create_params)
-    @comments = Comment.where(prototype_id: params[:prototype_id])
+    Comment.create(create_params)
     @prototype = Prototype.find(params[:prototype_id])
-    @comment = Comment.new
   end
 
   private
