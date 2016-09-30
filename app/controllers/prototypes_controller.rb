@@ -61,7 +61,7 @@ class PrototypesController < ApplicationController
         :prototype_id,
         :role,
         :picture
-      ]).merge(user_id: current_user.id)
+      ]).merge(user_id: current_user.id, tag_list: params[:prototype][:tag])
   end
 
   def update_params
@@ -75,6 +75,6 @@ class PrototypesController < ApplicationController
         :role,
         :picture,
         :_destroy
-      ]).merge(user_id: current_user.id)
+      ]).merge(user_id: current_user.id, tag_list: params[:prototype][:tag])
   end
 end
