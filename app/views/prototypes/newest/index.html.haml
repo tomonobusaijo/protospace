@@ -10,7 +10,8 @@
           = link_to 'Popular PROTO', root_path
         %li.active{role: "presentation"}
           = link_to 'Newest PROTO', prototypes_newest_index_path
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+      %button{type: "button", class: "btn btn-default col-lg-1"}
+        = link_to 'View Tags', tags_path
 
 .container.proto-list
   .row
@@ -27,10 +28,9 @@
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
-              %li
-                = link_to 'iPad', "#", class: "btn btn-default"
-              %li
-                = link_to 'wireframe', "#", class: "btn btn-default"
+              - prototype.tags.each do |tag|
+                %li
+                  =link_to "#{tag.name}", tag_path(tag.name), class: "btn btn-default"
 
 .text-center
   %ul.pagination
