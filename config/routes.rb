@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   namespace :prototypes do
     resources :newest, only: [:index]
   end
+  scope module: :prototypes do
+    resources :tags, only: [:index, :show]
+  end
   resources :prototypes do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]

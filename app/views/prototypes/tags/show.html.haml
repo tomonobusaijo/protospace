@@ -13,8 +13,10 @@
       %button{type: "button", class: "btn btn-default col-lg-1"}
         = link_to 'View Tags', tags_path
 
-.container.proto-list
+.container
   .row
+    .tag-header
+      %span # #{@tag}
     - @prototype.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
@@ -31,7 +33,3 @@
               - prototype.tags.each do |tag|
                 %li
                   =link_to "#{tag.name}", tag_path(tag.name), class: "btn btn-default"
-
-.text-center
-  %ul.pagination
-    = paginate(@prototype)
