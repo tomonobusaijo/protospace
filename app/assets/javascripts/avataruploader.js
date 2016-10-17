@@ -16,3 +16,24 @@ window.addEventListener('turbolinks:load', function() {
     });
   }
 });
+
+//jQuery版やってみたけどダメだったw
+
+// $(document).on("turbolinks:load", function() {
+//   var $uploadAvatar = $('#upload_avatar')[0];
+//   var $avatarImageId = $('#user_avatar')[0];
+//   if ( $uploadAvatar != null ){
+//     $($uploadAvatar).on('change', function(e){
+//       var $input = $uploadAvatar.files[0];
+//       var $reader = new FileReader();
+//       $($reader).on('load', function(e) {
+//         $avatarImageId.src = $reader.result;
+//       }, true);
+//       $reader.readAsDataURL($input);
+//     }, true);
+
+//     $($avatarImageId).on('load', function(){
+//       this.style.display = 'block';
+//     });
+//   }
+// });
