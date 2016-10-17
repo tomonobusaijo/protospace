@@ -9,7 +9,8 @@
               = f.text_field :name, placeholder: "Username"
             .user-image.col-md-2
               %button.btn.btn-primary Add image
-              %input{type: "file"}/
+              = f.file_field :avatar, id: "upload_avatar"
+              %img#user_avatar.media-object{src:""}
           = f.email_field :email, placeholder: "E-mail", class: "user-email"
           %br
           = f.password_field :password, placeholder: "Password", class: "user-password"
@@ -30,3 +31,5 @@
               = f.text_area :works, placeholder: "Works", cols: 30, rows: 4
       .row.text-center.user-btn
         = f.submit "Save", class: "btn btn-lg btn-primary btn-block"
+
+%script
