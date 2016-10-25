@@ -41,7 +41,7 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    prototype.destroy
+    @prototype.destroy
     flash[:success] = "Prototype was successfully deleted."
     redirect_to :root and return
   end

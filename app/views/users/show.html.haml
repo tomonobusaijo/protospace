@@ -8,7 +8,7 @@
         %h4#top-aligned-media.media-heading
           Top aligned media
           %span.label.label-default.project-number
-            29
+            = @user.prototypes.count
             %i Projects
         .proto-user
           %span.degree
@@ -36,7 +36,7 @@
               .proto-user
                 = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
               .proto-posted
-                Apr 26
+                = prototype.posted_date(prototype.created_at)
               - if current_user.id == prototype.user_id
                 .proto-edit
                   = link_to "編集", edit_prototype_path(prototype.id)

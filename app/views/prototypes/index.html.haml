@@ -26,7 +26,7 @@
               .proto-user
                 = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
               .proto-posted
-                Apr 26
+                = prototype.posted_date(prototype.created_at)
             %ul.proto-tag-list.list-inline
               - prototype.tags.each do |tag|
                 %li
