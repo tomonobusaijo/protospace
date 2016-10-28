@@ -43,6 +43,8 @@ FactoryGirl.define do
       end
     end
 
+    factory :invalid_prototype do
+      title nil
+    end
   end
-
 end
