@@ -1,9 +1,10 @@
 class PrototypesController < ApplicationController
 
+  before_action :authenticate_user!, except:[:index, :show]
   before_action :set_prototype, only:[:show, :edit, :update, :destroy]
 
   def index
-    @prototype = Prototype.order('likes_count DESC').paginate(params, 8)
+    @prototypes = Prototype.order('likes_count DESC').paginate(params, 8)
   end
 
   def new
