@@ -11,6 +11,9 @@ FactoryGirl.define do
     created_at              { Faker::Time.between(2.days.ago, 1.days.ago, :all) }
     updated_at              { Faker::Time.between(1.days.ago, Time.now, :all) }
     avatar                  "sample.jpg"
-  end
 
+    factory :invalid_user do
+      name nil
+    end
+  end
 end
